@@ -37,6 +37,7 @@ public class AgreementController extends HttpServlet {
         out.print("<script>location.href='/view/join/join.jsp'</script>");
         out.close();
 
+        System.out.println("아 똥마렵다");
 
     }
 }
