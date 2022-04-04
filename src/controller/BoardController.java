@@ -1,5 +1,6 @@
 package controller;
 
+import entity.BoardEntity;
 import service.BoardService;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "BoardController", value = "/board")
 public class BoardController extends HttpServlet {
@@ -32,7 +34,7 @@ public class BoardController extends HttpServlet {
             page = Integer.parseInt(page_);
 
         BoardService service = new BoardService();
-        List<Board> list = service.getBoardList(field, query, page);
+        List<BoardEntity> list = service.getBoardList(field, query, page);
         int count = service.getBoardCount(field, query);
 
         request.setAttribute("list", list);

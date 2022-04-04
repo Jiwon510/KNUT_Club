@@ -1,14 +1,16 @@
 package service;
 
+import entity.UserEntity;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
     /*회원리스트*/
-    public List<User> getUser(String field, String query, int page) {
+    public List<UserEntity> getUser(String field, String query, int page) {
 
-        List<User> list = new ArrayList<>();
+        List<UserEntity> list = new ArrayList<>();
         String sql = "SELECT num, name, studentID, department FROM userTBL WHERE authority = 1"
                 + " AND " + field + " LIKE ? ";
 
@@ -34,7 +36,7 @@ public class UserService {
                 String studentID = rs.getString("studentID");
                 String department = rs.getString("department");
 
-                User user = new User(
+                UserEntity user = new UserEntity(
                         num
                         , name
                         , studentID
@@ -63,9 +65,9 @@ public class UserService {
         return list;
     }
     /*비회원리스트*/
-    public List<User> getNonUser(String field, String query, int page) {
+    public List<UserEntity> getNonUser(String field, String query, int page) {
 
-        List<User> list= new ArrayList<>();
+        List<UserEntity> list= new ArrayList<>();
 
         String sql = "SELECT num, name, studentID, department FROM userTBL WHERE authority = 0"
                 + " AND " +field+ " LIKE ? ";
@@ -92,7 +94,7 @@ public class UserService {
                 String studentID = rs.getString("studentID");
                 String department = rs.getString("department");
 
-                User user = new User(
+                UserEntity user = new UserEntity(
                         num
                         ,name
                         ,studentID

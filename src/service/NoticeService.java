@@ -1,14 +1,17 @@
 package service;
 
+import entity.NoticeEntity;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NoticeService {
     /* 공지사항리스트 */
-    public List<Notice> getNoticeList(String field, String query, int page) {
+    public List<NoticeEntity> getNoticeList(String field, String query, int page) {
 
-        List<Notice> list = new ArrayList<>();
+        List<NoticeEntity> list = new ArrayList<>();
 
         String sql = "SELECT @ROWNUM := @ROWNUM +1 AS n, NOTICE.*"
                 + " FROM NOTICE, (SELECT @ROWNUM := 0)TMP WHERE " +field+ " LIKE ? ORDER BY date DESC limit ?, 10;";
@@ -37,7 +40,7 @@ public class NoticeService {
                 String writer = rs.getString("writer");
                 Date date = rs.getDate("date");
 
-                Notice notice = new Notice(
+                NoticeEntity notice = new NoticeEntity(
                         n
                         , num
                         , title
@@ -110,8 +113,8 @@ public class NoticeService {
     }
 
     /* 공지사항_자세한 페이지 */
-    public Notice getNotice(int num) {
-        Notice notice = null;
+    public NoticeEntity getNotice(int num) {
+        NoticeEntity notice = null;
 
         String sql = "SELECT * FROM NOTICE WHERE num = ?";
 
@@ -139,7 +142,7 @@ public class NoticeService {
                 String content = rs.getString("content");
                 String file = rs.getString("file");
 
-                notice = new Notice(
+                notice = new NoticeEntity(
                         title
                         , writer
                         , date

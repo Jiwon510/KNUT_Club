@@ -1,5 +1,6 @@
 package controller;
 
+import entity.NoticeEntity;
 import service.NoticeService;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "NoticeController", value = "/notice")
 public class NoticeController extends HttpServlet {
@@ -32,7 +34,7 @@ public class NoticeController extends HttpServlet {
             page = Integer.parseInt(page_);
 
         NoticeService service = new NoticeService();
-        List<Notice> list = service.getNoticeList(field, query, page);
+        List<NoticeEntity> list = service.getNoticeList(field, query, page);
         int count = service.getNoticeCount(field, query);
 
         request.setAttribute("list", list);

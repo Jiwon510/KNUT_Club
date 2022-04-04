@@ -1,15 +1,18 @@
 package service;
 
+import entity.WriteEntity;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WriteService {
     /*공지사항_글작성*/
-    public List<Write> WriteNotice(String title, String writer, String content, int like_count) {
+    public List<WriteEntity> WriteNotice(String title, String writer, String content, int like_count) {
 
-        List<Write> list= new ArrayList<>();
+        List<WriteEntity> list= new ArrayList<>();
 
         String sql = "INSERT INTO NOTICE(title, writer, content) VALUES (?, ?, ?)";
 
@@ -31,7 +34,7 @@ public class WriteService {
 
             int rs = pst.executeUpdate();
 
-            Write write = new Write (
+            WriteEntity write = new WriteEntity (
                     title
                     ,writer
                     ,content
