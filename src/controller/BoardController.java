@@ -40,7 +40,7 @@ public class BoardController extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("count", count);
 
-        request.getRequestDispatcher("/VIEW/board/board.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/board/board.jsp").forward(request, response);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class BoardController extends HttpServlet {
 
         int result = service.delBoardAll(ids);
 
-        response.sendRedirect("/VIEW/board/board");
+        response.sendRedirect("/view/board/board.jsp");
     }
 }

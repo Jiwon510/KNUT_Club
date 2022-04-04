@@ -40,7 +40,7 @@ public class NoticeController extends HttpServlet {
         request.setAttribute("list", list);
         request.setAttribute("count", count);
 
-        request.getRequestDispatcher("/VIEW/notice/notice.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/notice/notice.jsp").forward(request, response);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class NoticeController extends HttpServlet {
 
         int result = service.delNoticeAll(ids);
 
-        response.sendRedirect("/VIEW/notice/notice");
+        response.sendRedirect("/view/notice/notice.jsp");
     }
 }

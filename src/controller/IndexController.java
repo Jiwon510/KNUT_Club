@@ -22,6 +22,6 @@ public class IndexController extends HttpServlet {
         session.setAttribute("name", name);
         request.setAttribute("name", name);
 
-        request.getRequestDispatcher("/VIEW/index/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/index/index.jsp").forward(request, response);
     }
 }

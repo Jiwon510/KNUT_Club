@@ -6,14 +6,14 @@
 <head>
     <meta charset="utf-8">
     <title>로그인</title>
-    <link rel="stylesheet" href="login.css">
-    <script type="text/javascript" src="login.js"></script>
+    <link rel="stylesheet" href="/view/login/login.css">
+    <script type="text/javascript" src="/view/login/login.js"></script>
 
 </head>
 
 <body>
 <header>
-    <a href="/view/index/index.jsp"><img id="logo" src="images/header_logo.jpg"></a>
+    <a href="/view/index/index.jsp"><img id="logo" src="/view/login/images/header_logo.jpg"></a>
     <h1>KNUT-CLUB</h1>
 </header>
 
@@ -37,7 +37,7 @@
                     </div>
                     <button id="btn" type="submit"><strong>로그인</strong></button>
                     <div class="links">
-                        <button class="links-btn" type="button" onclick="location.href='/view/agreement/agreement.jsp'">
+                        <button class="links-btn" type="button" onclick="location.href='/agreement'">
                             <strong>회원가입</strong></button>
                         <button class="links-btn" type="button" onclick="location.href='/view/find/find.jsp'"><strong>PW
                             재설정</strong></button>
@@ -71,7 +71,7 @@
 </section>
 
 <footer>
-    <img src="images/logo.png">
+    <img src="/view/login/images/logo.png">
     <ul class="footer-list">
         <li class="item"><strong>국립한국교통대:</strong> <a href="https://www.ut.ac.kr/">https://www.ut.ac.kr/</a></li>
         <span id="item-developer"><li>Web Developers</li></span>

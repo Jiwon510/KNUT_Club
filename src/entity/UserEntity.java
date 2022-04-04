@@ -15,6 +15,12 @@ public class UserEntity {
     private String authority;
 
     /* 회원목록 */
+    public UserEntity(String studentID, String password) {
+        this.studentID = studentID;
+        this.password = password;
+    }
+
+    /* 회원목록 */
     public UserEntity(int num, String name, String studentID, String department) {
         this.num = num;
         this.name = name;

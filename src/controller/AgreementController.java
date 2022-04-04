@@ -13,31 +13,29 @@ public class AgreementController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
-        String chk_1 = request.getParameter("chk_1");
-        String chk_2 = request.getParameter("chk_2");
-
-        /* 예외처리 */
-        if (chk_1 == null)
-            chk_1 = "0";
-        if (chk_2 == null)
-            chk_2 = "0";
-
-        if (chk_1.equals("0") && chk_2.equals("0")) {
-            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
-            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
-        } else if (chk_1.equals("0")) {
-            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
-            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
-        } else if (chk_2.equals("0")) {
-            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
-            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
-        }
-        out.print("<script>location.href='/view/join/join.jsp'</script>");
-        out.close();
-
-        System.out.println("아 똥마렵다");
-
+        request.getRequestDispatcher("/view/agreement/agreement.jsp").forward(request, response);
+//        PrintWriter out = response.getWriter();
+//
+//        String chk_1 = request.getParameter("chk_1");
+//        String chk_2 = request.getParameter("chk_2");
+//
+//        /* 예외처리 */
+//        if (chk_1 == null)
+//            chk_1 = "0";
+//        if (chk_2 == null)
+//            chk_2 = "0";
+//
+//        if (chk_1.equals("0") && chk_2.equals("0")) {
+//            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
+//            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
+//        } else if (chk_1.equals("0")) {
+//            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
+//            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
+//        } else if (chk_2.equals("0")) {
+//            out.print("<script>alert('KNUTCLUB 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.')</script>");
+//            out.print("<script>location.href='/view/agreement/agreement.jsp'</script>");
+//        }
+//        out.print("<script>location.href='/view/join/join.jsp'</script>");
+//        out.close();
     }
 }
